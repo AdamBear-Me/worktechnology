@@ -11,3 +11,6 @@
 - Base	一些基础语法的练习
 - Algorithm 算法的练习	
 - Python_Module Python模块包
+
+##Shell
+- 一些常用的shell命令总结
