@@ -1,0 +1,16 @@
+#!/bin/sh
+#统计文章中单词出现的频率  利用bash中的数组以及awk
+if [ $# -ne 1 ];then #要求参数必须为1
+	echo "Usage:$0 filename"
+	exit -1
+fi
+
+filename=$1
+egrep -o "\b[[:alpha:]]+\b" $filename | \
+	awk '{count[$0]++}
+	END{printf("%-15s%s\n","word","count");
+	for(ind in count){
+		printf("%-15s%s\n",ind,count[ind])
+	}
+}
+'
