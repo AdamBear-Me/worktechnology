@@ -2,12 +2,19 @@
 /**
  * Created by PhpStorm.
  * User: 超
- * Date: 15-5-24
- * Time: 上午10:19
+ * Date: 14-11-30
+ * Time: 下午4:08
  */
 namespace Common;
 
-class Database
+interface IDatabase
+{
+    function connect($host,$user,$passwd,$dbname);
+    function query($sql);
+    function close();
+}
+
+class DataBase
 {
     protected $db;
     private function __construct()
@@ -24,19 +31,17 @@ class Database
             return self::$db;
         }
     }
-
-    //使用链式操作时，方法返回的必须是$this
-    public function where()
+    function where($where)
     {
         return $this;
     }
 
-    public function order()
+    function order($order)
     {
         return $this;
     }
 
-    public function limit()
+    function limit($limit)
     {
         return $this;
     }
